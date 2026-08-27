@@ -136,6 +136,28 @@ type StreamingLoggable interface {
 	AlwaysShowAllLogs() bool // Return true to show all messages
 }
 
+// Sensitive is an optional capability a handler implements alongside
+// HandlerEdit, HandlerInteractive, or HandlerSelection to mark its current
+// Value() unfit to render or log in plaintext — a credential being typed,
+// for example.
+//
+// Consumers detect it the same way the ecosystem already detects Cancelable
+// or TabAware: a type assertion on the handler passed to AddHandler, never a
+// change to the core Handler* interfaces (that would force every existing
+// handler to implement a method it has no use for).
+//
+//	if s, ok := handler.(Sensitive); ok && s.Sensitive() {
+//		// render/log a mask instead of the real Value()
+//	}
+//
+// Sensitive() is called on every render/log — for a handler whose
+// sensitivity can change per field (e.g. a multi-step wizard where only some
+// steps collect a secret), return the CURRENT step's state, not a fixed
+// value decided once.
+type Sensitive interface {
+	Sensitive() bool
+}
+
 // LogOpen and LogClose are special prefixes for progress indication.
 // Use LogOpen at the start of a long operation to show an animated spinner.
 // Use LogClose when the operation completes to stop the animation.
