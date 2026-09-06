@@ -1,3 +1,3 @@
-module github.com/tinywasm/tui
+module webtyp.com/tui
 
 go 1.25.2

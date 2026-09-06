@@ -1,6 +1,6 @@
 // Package tui is the single source of truth for the TUI handler-kind contract
-// shared by github.com/tinywasm/devtui (the renderer/consumer) and
-// github.com/tinywasm/app (the daemon producer).
+// shared by webtyp.com/devtui (the renderer/consumer) and
+// webtyp.com/app (the daemon producer).
 //
 // A "handler" is any value a consumer registers with the TUI. The TUI inspects
 // the handler's Go interface to decide how to render it (button, text field,

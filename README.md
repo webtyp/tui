@@ -2,8 +2,8 @@
 <img src="docs/img/badges.svg">
 
 Single source of truth for the **TUI handler-kind contract** shared by
-[`tinywasm/devtui`](https://github.com/tinywasm/devtui) (the terminal renderer)
-and [`tinywasm/app`](https://github.com/tinywasm/app) (the daemon that
+[`webtyp/devtui`](https://github.com/webtyp/devtui) (the terminal renderer)
+and [`webtyp/app`](https://github.com/webtyp/app) (the daemon that
 serializes handler state to the client).
 
 ## Why this exists
@@ -14,7 +14,7 @@ over the daemon↔client wire. That mapping used to be re-derived independently 
 several places (`devtui`'s local switch, its wire constants, `app`'s hand-copied
 constants and a second detection switch). Adding or reordering a handler kind
 silently broke one side — e.g. a `Selection` handler (radio buttons) collapsing
-into a plain text field in `tinywasm -tui`.
+into a plain text field in `webtyp -tui`.
 
 This package centralizes the entire contract so there is exactly one place to
 change, and a completeness test that fails loudly when a new kind isn't fully

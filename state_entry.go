@@ -1,8 +1,8 @@
 package tui
 
 // StateEntry is the JSON wire format for a single handler registered in the
-// daemon TUI. Produced by the daemon (github.com/tinywasm/app's HeadlessTUI),
-// consumed by the client (github.com/tinywasm/devtui client mode).
+// daemon TUI. Produced by the daemon (webtyp.com/app's HeadlessTUI),
+// consumed by the client (webtyp.com/devtui client mode).
 //
 // The JSON tags are the published contract: any producer must match them
 // exactly, and existing tags must never change. Only additive changes (new

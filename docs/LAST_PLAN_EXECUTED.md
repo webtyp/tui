@@ -11,18 +11,18 @@ REVIEWER: none
 ## Part of a multi-repo wave
 
 This is one piece of `KEYRING_DOTENV_MASTER_PLAN.md` (orchestrator:
-`github.com/tinywasm/app-releases`, `docs/KEYRING_DOTENV_MASTER_PLAN.md`). This
+`webtyp.com/app-releases`, `docs/KEYRING_DOTENV_MASTER_PLAN.md`). This
 piece has **no dependency on any other piece of that wave** — dispatch it
-immediately, in parallel with the `tinywasm/kvdb` and `tinywasm/keyring`
-plans. `tinywasm/devtui` and `tinywasm/wizard` each depend on this publishing
+immediately, in parallel with the `webtyp/kvdb` and `webtyp/keyring`
+plans. `webtyp/devtui` and `webtyp/wizard` each depend on this publishing
 first.
 
 ## Why
 
 A future handler (a secret/password field, first consumer: a
-`tinywasm/wizard.Step` that asks for a credential) must never have its typed
-value shown on screen or written into a log line — `tinywasm/devtui` streams
-its transcript over SSE (`GET /logs`, also read by `tinywasm/app`'s MCP tool
+`webtyp/wizard.Step` that asks for a credential) must never have its typed
+value shown on screen or written into a log line — `webtyp/devtui` streams
+its transcript over SSE (`GET /logs`, also read by `webtyp/app`'s MCP tool
 `app_get_logs`), so anything logged in plaintext is not just on-screen, it is
 exported.
 
@@ -82,7 +82,7 @@ File: **`sensitive_test.go`** (new, next to `interfaces.go`).
 
 ## Out of scope
 
-Do not touch `tinywasm/devtui` or `tinywasm/wizard` here — consuming this
+Do not touch `webtyp/devtui` or `webtyp/wizard` here — consuming this
 capability (masking the on-screen render, masking the auto-logged
 confirmation) is their own plan in this same wave, dispatched once this one
 publishes.
