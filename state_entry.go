@@ -28,3 +28,9 @@ type Meta struct {
 	Options   []map[string]string
 	Shortcuts []map[string]string
 }
+
+// ProjectKey names the project a devtui client shows, on every daemon call that
+// carries it: the /logs stream query (?project=<absolute dir>) and the
+// "project" field of the webtyp/state and webtyp/action params. A daemon that
+// runs several projects routes state, actions and logs by it.
+const ProjectKey = "project"
